@@ -220,14 +220,24 @@ namespace proc112
     }
     class Proc26
     {
-        static void task26()
+        static bool IsPower5(int k)
         {
-            bool IsPower5(int K);
-
+            if(k < 5) return false; //k<0 если считать, что 5^0 = 1
+            while(k%5==0)
+            {
+                k /= 5;
+            }
+            return k == 1;
         }
-        static bool IsPower5(float k)
+        static void Main(string[] args)
         {
-
+            var array = new int[] { 1, -1, 5, 15, 25, 125, 625, 6, 10, 11 };
+            var count = 0;
+            for(int i = 0; i < array.Length; i++)
+            {
+                if(IsPower5(array[i])) count++;
+            }
+            Console.WriteLine(count);
         }
     }
     class Proc27
